@@ -1,0 +1,25 @@
+<resources>
+    <style name="Knor" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TextAppearance.Knor.SubjectTitle" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/google_sans</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">@font/google_sans</item>
+    </style>
+
+    <style name="TextAppearance.Knor.GroupTitle" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/google_sans</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">@font/google_sans</item>
+    </style>
+
+    <style name="TextAppearance.Knor.SubjectDescription" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+</resources>
