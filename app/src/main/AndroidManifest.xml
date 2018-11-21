@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Knor"
         android:fullBackupContent="true">
-        <activity android:name=".feature.LauncherActivity">
+        <activity android:name=".feature.launch.LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

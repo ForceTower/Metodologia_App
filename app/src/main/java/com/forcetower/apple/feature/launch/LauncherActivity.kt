@@ -1,10 +1,10 @@
-package com.forcetower.apple.feature
+package com.forcetower.apple.feature.launch
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.forcetower.apple.R
+import dagger.android.support.DaggerAppCompatActivity
 
-class LauncherActivity : AppCompatActivity() {
+class LauncherActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
