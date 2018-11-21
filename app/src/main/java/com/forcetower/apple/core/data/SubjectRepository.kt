@@ -23,7 +23,9 @@ class SubjectRepository @Inject constructor(
                 Timber.d("Exception on document read")
             } else {
                 if (snapshot != null) {
-                    val list = snapshot.documents.map { it.toObject(Subject::class.java)!!.apply { id = it.id } }
+                    val list = snapshot.documents
+                        .map { it.toObject(Subject::class.java)!!.apply { id = it.id } }
+                        .sortedBy { it.order }
                     data.postValue(list)
                 } else {
                     data.postValue(emptyList())
