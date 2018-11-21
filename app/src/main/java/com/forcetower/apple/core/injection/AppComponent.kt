@@ -2,6 +2,7 @@ package com.forcetower.apple.core.injection
 
 import com.forcetower.apple.PApplication
 import com.forcetower.apple.core.injection.module.AppModule
+import com.forcetower.apple.core.injection.module.CoreModule
 import com.forcetower.apple.core.injection.module.ViewModelModule
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -14,7 +15,8 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         AppModule::class,
         ActivityBindingModule::class,
-        ViewModelModule::class
+        ViewModelModule::class,
+        CoreModule::class
     ]
 )
 interface AppComponent: AndroidInjector<PApplication> {

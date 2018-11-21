@@ -1,7 +1,6 @@
 package com.forcetower.apple.core.injection.module
 
 import com.forcetower.apple.core.model.Subject
-import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import dagger.Module
@@ -28,5 +27,5 @@ class CoreModule {
     @Provides
     @Reusable
     @Named(Subject.COLLECTION)
-    fun provideSubjectCollection(firestore: FirebaseFirestore): CollectionReference = firestore.collection(Subject.COLLECTION)
+    fun provideSubjectCollection(firestore: FirebaseFirestore) = firestore.collection(Subject.COLLECTION)
 }
