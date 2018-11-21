@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/start_fragment"
-        android:name="com.forcetower.apple.feature.start.StartFragment"
+        android:name="com.forcetower.apple.feature.launch.subject.SubjectFragment"
         android:label="Start"
         tools:layout="@layout/fragment_start"/>
 </navigation>

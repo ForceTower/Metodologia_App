@@ -1,7 +1,7 @@
 package com.forcetower.apple.core.model
 
-//Esta classe vem do backend, provavelmente o firebase... tenho que pensar
 data class Subject(
+    var id: String = "",
     var title: String,
     var subtitle: String,
     var image: String
