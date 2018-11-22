@@ -4,9 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.forcetower.apple.R
+import com.forcetower.apple.core.model.Subject
 import com.forcetower.apple.databinding.FragmentStartBinding
+import com.forcetower.apple.feature.EventObserver
 import com.forcetower.apple.feature.shared.provideActivityViewModel
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -35,5 +40,10 @@ class SubjectFragment: DaggerFragment() {
             }
         }
         subjectVM.subjects.observe(this, Observer { subjectAdapter.submitList(it) })
+        subjectVM.navigateToSubjectAction.observe(this, EventObserver { navigateToSubject(it) })
+    }
+
+    private fun navigateToSubject(subject: Subject) {
+        findNavController().navigate(R.id.start_to_information, bundleOf("subject_id" to subject.id))
     }
 }

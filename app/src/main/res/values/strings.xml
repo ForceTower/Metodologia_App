@@ -2,4 +2,5 @@
     tools:locale="br">
     <string name="app_name">Aa Conhecimento</string>
     <string name="subjects_label">Tipos de Conhecimento</string>
+    <string name="navigate_up">Voltar</string>
 </resources>

@@ -11,5 +11,17 @@
         android:id="@+id/start_fragment"
         android:name="com.forcetower.apple.feature.launch.subject.SubjectFragment"
         android:label="Start"
-        tools:layout="@layout/fragment_start"/>
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/start_to_information"
+            app:destination="@id/information_fragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/information_fragment"
+        android:name="com.forcetower.apple.feature.launch.topic.InformationFragment"
+        android:label="Information">
+        <argument
+            android:name="subject_id"
+            app:argType="string"/>
+    </fragment>
 </navigation>
