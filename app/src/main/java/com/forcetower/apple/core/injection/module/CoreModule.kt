@@ -1,5 +1,6 @@
 package com.forcetower.apple.core.injection.module
 
+import com.forcetower.apple.core.model.Information
 import com.forcetower.apple.core.model.Subject
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
@@ -28,4 +29,9 @@ class CoreModule {
     @Reusable
     @Named(Subject.COLLECTION)
     fun provideSubjectCollection(firestore: FirebaseFirestore) = firestore.collection(Subject.COLLECTION)
+
+    @Provides
+    @Reusable
+    @Named(Information.COLLECTION)
+    fun provideInformationCollection(firestore: FirebaseFirestore) = firestore.collection(Information.COLLECTION)
 }

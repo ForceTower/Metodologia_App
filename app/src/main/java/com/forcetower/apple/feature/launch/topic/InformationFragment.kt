@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.forcetower.apple.databinding.FragmentInformationBinding
@@ -19,6 +20,7 @@ class InformationFragment: DaggerFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         informationVM = provideActivityViewModel(factory)
+        informationVM.setSubject(subjectId)
         subjectId = requireNotNull(arguments).getString("subject_id")?: "invalid"
         return FragmentInformationBinding.inflate(inflater, container, false).also {
             binding = it
@@ -28,12 +30,12 @@ class InformationFragment: DaggerFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.up.setOnClickListener { findNavController().popBackStack() }
 
-
         val informationAdapter = InformationAdapter()
         binding.informationRecycler.apply {
             adapter = informationAdapter
         }
 
-        //TODO observar a coleção de informações e assunto
+        informationVM.subject.observe(this, Observer { informationAdapter.subject = it })
+        informationVM.information.observe(this, Observer { informationAdapter.informations = it })
     }
 }
