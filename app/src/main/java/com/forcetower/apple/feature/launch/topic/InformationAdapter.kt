@@ -60,7 +60,6 @@ class InformationAdapter : RecyclerView.Adapter<InformationHolder>() {
             }
             is InformationHolder.ImageHolder -> holder.binding.apply {
                 info = differ.currentList[position] as Information
-                image.clipToOutline = true
                 executePendingBindings()
             }
         }

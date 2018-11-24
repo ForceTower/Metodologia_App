@@ -64,3 +64,8 @@ fun goneUnless(view: View, condition: Boolean) {
 fun pageMargin(viewPager: ViewPager, pageMargin: Float) {
     viewPager.pageMargin = pageMargin.toInt()
 }
+
+@BindingAdapter("clipToOutline")
+fun clipToOutline(view: View, condition: Boolean) {
+    view.clipToOutline = condition
+}
