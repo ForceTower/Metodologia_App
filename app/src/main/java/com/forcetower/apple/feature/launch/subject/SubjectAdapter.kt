@@ -19,6 +19,7 @@ class SubjectAdapter(
         holder.binding.apply {
             subject = getItem(position)
             actions = listener
+            root.setTag(R.id.start_to_information, subject?.id)
             setLifecycleOwner(lifecycleOwner)
             executePendingBindings()
         }

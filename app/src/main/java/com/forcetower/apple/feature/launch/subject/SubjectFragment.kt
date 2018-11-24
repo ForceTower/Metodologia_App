@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.forEach
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -14,6 +17,7 @@ import com.forcetower.apple.databinding.FragmentStartBinding
 import com.forcetower.apple.feature.EventObserver
 import com.forcetower.apple.feature.shared.provideActivityViewModel
 import dagger.android.support.DaggerFragment
+import timber.log.Timber
 import javax.inject.Inject
 
 class SubjectFragment: DaggerFragment() {
@@ -45,5 +49,16 @@ class SubjectFragment: DaggerFragment() {
 
     private fun navigateToSubject(subject: Subject) {
         findNavController().navigate(R.id.start_to_information, bundleOf("subject_id" to subject.id))
+        //val source = findSubject(binding.subjectsRecycler, subject.id)
+    }
+
+    private fun findSubject(subjects: ViewGroup, subjectId: String): View {
+        subjects.forEach {
+            if (it.getTag(R.id.start_to_information) == subjectId) {
+                return it
+            }
+        }
+        Timber.d("Not found....")
+        return subjects
     }
 }

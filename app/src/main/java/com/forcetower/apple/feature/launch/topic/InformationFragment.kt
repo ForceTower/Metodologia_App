@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -38,5 +39,13 @@ class InformationFragment: DaggerFragment() {
 
         informationVM.subject.observe(this, Observer { informationAdapter.subject = it })
         informationVM.information.observe(this, Observer { informationAdapter.informations = it })
+    }
+
+    companion object {
+        fun createInstance(id: String): InformationFragment {
+            return InformationFragment().apply {
+                arguments = bundleOf("subject_id" to id)
+            }
+        }
     }
 }

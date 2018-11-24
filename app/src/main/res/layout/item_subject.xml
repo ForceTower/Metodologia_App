@@ -20,6 +20,7 @@
         android:paddingVertical="8dp"
         android:background="?android:selectableItemBackground"
         android:onClick="@{() -> actions.onSubjectSelected(subject)}"
+        android:transitionGroup="true"
         tools:targetApi="o">
 
         <androidx.constraintlayout.widget.Guideline
