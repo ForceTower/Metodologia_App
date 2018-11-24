@@ -70,7 +70,7 @@ class InformationAdapter : RecyclerView.Adapter<InformationHolder>() {
         return when (item) {
             is Subject -> R.layout.item_information_title
             is Information -> {
-                when (item) {
+                when {
                     item.text != null -> R.layout.item_information_text
                     item.image != null -> R.layout.item_information_image
                     item.subtitle != null -> R.layout.item_information_topic

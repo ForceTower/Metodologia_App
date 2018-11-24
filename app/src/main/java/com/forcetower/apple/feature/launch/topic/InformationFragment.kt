@@ -20,8 +20,8 @@ class InformationFragment: DaggerFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         informationVM = provideActivityViewModel(factory)
-        informationVM.setSubject(subjectId)
         subjectId = requireNotNull(arguments).getString("subject_id")?: "invalid"
+        informationVM.setSubject(subjectId)
         return FragmentInformationBinding.inflate(inflater, container, false).also {
             binding = it
         }.root
