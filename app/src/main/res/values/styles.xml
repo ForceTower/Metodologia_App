@@ -5,6 +5,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:windowBackground">@android:color/white</item>
     </style>
 
     <style name="TextAppearance.Knor.SubjectTitle" parent="TextAppearance.MaterialComponents.Headline6">

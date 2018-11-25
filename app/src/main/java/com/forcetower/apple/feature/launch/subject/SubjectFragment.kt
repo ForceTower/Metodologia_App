@@ -1,6 +1,9 @@
 package com.forcetower.apple.feature.launch.subject
 
+import android.graphics.Rect
 import android.os.Bundle
+import android.transition.Explode
+import android.transition.Transition
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,8 +51,9 @@ class SubjectFragment: DaggerFragment() {
     }
 
     private fun navigateToSubject(subject: Subject) {
+        val source = findSubject(binding.subjectsRecycler, subject.id)
+        exitTransition = getListFragmentExitTransition(source)
         findNavController().navigate(R.id.start_to_information, bundleOf("subject_id" to subject.id))
-        //val source = findSubject(binding.subjectsRecycler, subject.id)
     }
 
     private fun findSubject(subjects: ViewGroup, subjectId: String): View {
@@ -60,5 +64,18 @@ class SubjectFragment: DaggerFragment() {
         }
         Timber.d("Not found....")
         return subjects
+    }
+
+    private fun getListFragmentExitTransition(itemView: View): Transition {
+        val epicCenterRect = Rect()
+        itemView.getGlobalVisibleRect(epicCenterRect)
+        epicCenterRect.top = epicCenterRect.bottom
+        val exitTransition = Explode()
+        exitTransition.epicenterCallback = object : Transition.EpicenterCallback() {
+            override fun onGetEpicenter(transition: Transition): Rect {
+                return epicCenterRect
+            }
+        }
+        return exitTransition
     }
 }

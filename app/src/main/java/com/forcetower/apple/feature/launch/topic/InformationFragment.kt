@@ -1,6 +1,7 @@
 package com.forcetower.apple.feature.launch.topic
 
 import android.os.Bundle
+import android.transition.Slide
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.forcetower.apple.databinding.FragmentInformationBinding
-import com.forcetower.apple.feature.shared.provideActivityViewModel
 import com.forcetower.apple.feature.shared.provideViewModel
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -21,6 +21,8 @@ class InformationFragment: DaggerFragment() {
     private lateinit var subjectId: String
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        enterTransition = Slide()
+        returnTransition = null
         informationVM = provideViewModel(factory)
         subjectId = requireNotNull(arguments).getString("subject_id")?: "invalid"
         informationVM.setSubject(subjectId)
